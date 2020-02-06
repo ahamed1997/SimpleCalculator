@@ -1,10 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-
-namespace SimpleArithmeticCalculator.Interfaces
+﻿namespace SimpleArithmeticCalculator.Interfaces
 {
-    interface ICalcu
+    interface ICalculator
     {
     }
 }

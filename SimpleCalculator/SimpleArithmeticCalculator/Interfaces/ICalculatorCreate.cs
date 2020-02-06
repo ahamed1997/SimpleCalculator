@@ -1,10 +1,10 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
+﻿using SimpleArithmeticCalculator.Enums;
+
 
 namespace SimpleArithmeticCalculator.Interfaces
 {
-    interface ICalculatorCreate
+    public interface ICalculatorCreate 
     {
+         ICalculatorCommand CreateCommand(CommandType commandType);
     }
 }

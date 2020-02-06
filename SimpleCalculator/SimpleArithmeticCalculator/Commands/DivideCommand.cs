@@ -1,7 +1,4 @@
 ﻿using SimpleArithmeticCalculator.Interfaces;
-using System;
-using System.Collections.Generic;
-using System.Text;
 
 namespace SimpleArithmeticCalculator.Commands
 {

@@ -1,10 +1,12 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
+﻿using SimpleArithmeticCalculator.Interfaces;
 
 namespace SimpleArithmeticCalculator.Commands
 {
-    class AddCommand
+    public class AddCommand : ICalculatorCommand
     {
+        public double Calculate(double firstValue, double secondValue)
+        {
+            return firstValue + secondValue;
+        }
     }
 }
