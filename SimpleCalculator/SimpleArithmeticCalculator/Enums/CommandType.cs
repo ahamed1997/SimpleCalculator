@@ -1,10 +1,12 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-
-namespace SimpleArithmeticCalculator.Enums
+﻿namespace SimpleArithmeticCalculator.Enums
 {
-    class CommandType
+    public enum CommandType
     {
+
+        Add = 1,
+        Subtract = 2,
+        Multiply = 3,
+        Divide = 4
+
     }
 }

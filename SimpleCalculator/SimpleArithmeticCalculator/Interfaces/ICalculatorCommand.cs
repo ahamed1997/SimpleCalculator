@@ -1,10 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-
-namespace SimpleArithmeticCalculator.Interfaces
+﻿namespace SimpleArithmeticCalculator.Interfaces
 {
-    interface ICalculatorCommand
+    public interface ICalculatorCommand
     {
+        double Calculate(double firstValue, double secondValue);
     }
 }
