@@ -10,18 +10,14 @@ namespace SimpleCalculator.Controllers
     public class MathCalculatorController : Controller
     {
         [HttpGet]
-        public double ArithmeticCalculator(double firstValue, double secondValue, int operation)
+        public double ArithmeticCalculator(double firstValue=0, double secondValue=0, int operationType=1)
         {
 
-            var choice = (CommandType)operation;
+            var commandType = (CommandType)operationType;
             CalculatorCreate calculator = new CalculatorCreate();
-            double output = calculator.CreateCommand(choice).Calculate(firstValue, secondValue);
+            double output = calculator.CreateCommand(commandType).Calculate(firstValue, secondValue);
             return output;
         }
-        [HttpGet]
-        public bool result()
-        {
-            return true;
-        }
+       
     }
 }
