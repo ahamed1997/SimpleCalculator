@@ -9,6 +9,6 @@ namespace SimpleArithmeticCalculator.Interfaces
     /// </summary>
     public interface ICalculator
     {
-        public Calculator calculator;
+
     }
 }
