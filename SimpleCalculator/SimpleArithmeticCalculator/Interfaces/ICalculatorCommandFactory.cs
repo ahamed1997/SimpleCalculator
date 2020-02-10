@@ -9,7 +9,7 @@ namespace SimpleArithmeticCalculator.Interfaces
     /// <summary>
     /// Interface to input command type from user.
     /// </summary>
-    public interface ICalculatorCreate
+    public interface ICalculateCommandFactory
     {
         /// <summary>
         /// Method Create Command which inputs command type from user.

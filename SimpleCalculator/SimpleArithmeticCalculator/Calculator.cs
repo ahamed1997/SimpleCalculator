@@ -12,12 +12,21 @@ namespace SimpleArithmeticCalculator
     /// <summary>
     /// Class CalculatorCreate depends ICalculatorCreate Interface.
     /// </summary>
-    public class CalculatorCreate : ICalculatorCreate
-    {/// <summary>
-    /// CreateCommmand Method is created.
-    /// </summary>
-    /// <param name="commandType">commandType is created as parameter.</param>
-    /// <returns>Select the particular commandType and perform calculations.</returns>
+    public class Calculator : ICalculateCommandFactory
+    {
+
+        private static Calculator instance = new Calculator();
+
+        /// <summary>
+        /// Gets to Avoid Creating more than one instnace using Singleton Pattern.
+        /// </summary>
+        public SimpleArithmeticCalculator.Calculator calculator => instance;
+
+        /// <summary>
+        /// CreateCommmand Method is created.
+        /// </summary>
+        /// <param name="commandType">commandType is created as parameter.</param>
+        /// <returns>Select the particular commandType and perform calculations.</returns>
         public ICalculatorCommand CreateCommand(CommandType commandType)
         {
             switch (commandType)
