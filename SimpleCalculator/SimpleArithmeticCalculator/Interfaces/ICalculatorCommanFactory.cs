@@ -3,7 +3,7 @@
 
 namespace SimpleArithmeticCalculator.Interfaces
 {
-    public interface ICalculatorCreate 
+    public interface ICalculatorCommandFactory 
     {
          ICalculatorCommand CreateCommand(CommandType commandType);
     }

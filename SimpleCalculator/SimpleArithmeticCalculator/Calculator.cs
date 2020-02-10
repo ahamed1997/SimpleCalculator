@@ -5,7 +5,7 @@ using System;
 
 namespace SimpleArithmeticCalculator
 {
-    public class CalculatorCreate : ICalculatorCreate
+    public class Calculator : ICalculatorCommandFactory
     {
         public ICalculatorCommand CreateCommand(CommandType commandType)
         {
