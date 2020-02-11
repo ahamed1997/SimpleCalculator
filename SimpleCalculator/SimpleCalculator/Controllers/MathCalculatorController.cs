@@ -17,6 +17,8 @@ namespace SimpleCalculator.Controllers
 
     public class MathCalculatorController : IMathController
     {
+       private ICalculateCommandFactory calculateCommandFactory;
+
         /// <summary>
         /// API Request Recieving Method.
         /// </summary>
@@ -24,10 +26,12 @@ namespace SimpleCalculator.Controllers
         /// <param name="secondValue">Inputs second param.</param>
         /// <param name="operationType">Type of operation.</param>
         /// <returns>Returns calculated output.</returns>
-        [HttpGet]
-        public double ArithmeticCalculator(double firstValue = 0, double secondValue = 0, int operationType = 1)
+       [HttpGet]
+       public double ArithmeticCalculator(double firstValue = 0, double secondValue = 0, int operationType = 1)
         {
-            Calculator calculator = new Calculator();            
+
+
+            Calculator calculator = new Calculator();
             var commandType = (CommandType)operationType;
             var command = calculator.CreateCommand(commandType);
             double output = command.Calculate(firstValue, secondValue);
