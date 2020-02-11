@@ -11,11 +11,11 @@ namespace SimpleCalculator.Controllers
     using SimpleArithmeticCalculator.Interfaces;
 
     /// <summary>
-    /// New Controller MathCalculatorController is created.
+    /// Controller MathCalculatorController is created.
     /// </summary>
     [EnableCors("http://localhost:4200", "*", "GET,PUT,POST")]
 
-    public class MathCalculatorController : ICalculator
+    public class MathCalculatorController : IMathController
     {
         /// <summary>
         /// API Request Recieving Method.
@@ -29,7 +29,8 @@ namespace SimpleCalculator.Controllers
         {
             Calculator calculator = new Calculator();            
             var commandType = (CommandType)operationType;
-            double output = calculator.CreateCommand(commandType).Calculate(firstValue, secondValue);
+            var command = calculator.CreateCommand(commandType);
+            double output = command.Calculate(firstValue, secondValue);
             return output;
         }
     }
