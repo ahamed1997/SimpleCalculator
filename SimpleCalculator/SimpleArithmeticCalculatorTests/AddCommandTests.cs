@@ -17,40 +17,39 @@ namespace SimpleArithmeticCalculatorTests
             calculator = calculatorMock.Object;
         }
         [TestMethod]
-        public void AddCommand_Tests()
+        public void AddCommandTest_withTwoIntegers()
         {
             //Arrange
-            double expectedValue = 4;
-            this.calculatorMock.Setup(x => x.Calculate(2, 2)).Returns(4);
+            double expectedValue = 133.4;
+            this.calculatorMock.Setup(x => x.Calculate(70.1,63.3)).Returns(133.4);
 
             //Act
-            double actualValue = calculator.Calculate(2, 2);
+            double actualValue = calculator.Calculate(70.1,63.3);
 
             //Assert
             Assert.AreEqual(expectedValue, actualValue);
             this.calculatorMock.Verify(x => x.Calculate(It.IsAny<double>(), It.IsAny<double>()), Times.Once());
         }
 
-        [ExpectedException(typeof(AssertFailedException))]
+        //[ExpectedException(typeof(AssertFailedException))]
         [TestMethod]
-        public void AddCommand_Tests_negative()
+        public void AddCommandTest_withTwoNegativeInteger()
         {
             //Arrange
-            double expectedValue = 45;
-           
-
+            double expectedValue = -100;
             //Act
             try
             {
-                this.calculatorMock.Setup(x => x.Calculate(-30, -15)).Returns(-45);
-                double actualValue = calculator.Calculate(-30,-15);
+                this.calculatorMock.Setup(x => x.Calculate(-80,-20)).Returns(-100);
+                double actualValue = calculator.Calculate(-80,-20)
+       
                 Assert.AreEqual(expectedValue, actualValue);
             }
             catch (Exception ex)
             {
                 throw;
             }
-           
+
         }
     }
 }
