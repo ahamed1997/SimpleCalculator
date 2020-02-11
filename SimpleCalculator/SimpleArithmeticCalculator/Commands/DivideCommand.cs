@@ -16,7 +16,10 @@ namespace SimpleArithmeticCalculator.Commands
         /// </summary>
         /// <param name="firstValue">Inputs first value.</param>
         /// <param name="secondValue">Inputs second value.</param>
-        /// <returns>Return addition result.</returns>
-        public double Calculate(double firstValue, double secondValue) => firstValue / secondValue;
+        /// <returns>Return Division result.</returns>
+        public double Calculate(double firstValue,double secondValue)
+        {
+            return firstValue / secondValue;
+        }
     }
 }

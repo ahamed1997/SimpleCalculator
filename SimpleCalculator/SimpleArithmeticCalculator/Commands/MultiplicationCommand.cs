@@ -12,7 +12,7 @@ namespace SimpleArithmeticCalculator.Commands
     public class MultiplicationCommand : ICalculatorCommand
     {
         /// <summary>
-        /// MEthod Calculate.
+        /// Method Calculate.
         /// </summary>
         /// <param name="firstValue">Inputs first value.</param>
         /// <param name="secondValue">Inputs second value.</param>
