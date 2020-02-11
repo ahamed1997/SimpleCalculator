@@ -41,15 +41,15 @@ namespace SimpleArithmeticCalculatorTests
             try
             {
                 this.calculatorMock.Setup(x => x.Calculate(-80,-20)).Returns(-100);
-                double actualValue = calculator.Calculate(-80,-20)
-       
+                double actualValue = calculator.Calculate(-80, -20);
+
+
                 Assert.AreEqual(expectedValue, actualValue);
             }
             catch (Exception ex)
             {
                 throw;
             }
-
         }
     }
 }
