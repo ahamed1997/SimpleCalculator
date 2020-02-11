@@ -22,14 +22,15 @@ namespace SimpleCalculator.Controllers
         /// </summary>
         /// <param name="firstValue">Inputs first param.</param>
         /// <param name="secondValue">Inputs second param.</param>
-        /// <param name="operationType">Type of operation.</param>
+        /// <param name="operator">Type of operation.</param>
         /// <returns>Returns calculated output.</returns>
         [HttpGet]
         public double ArithmeticCalculator(double firstValue = 0, double secondValue = 0, int operationType = 1)
         {
-            Calculator calculator = new Calculator();
+            ICalculateCommandFactory calculateCommandFactory;
+            
             var commandType = (CommandType)operationType;
-            double output = calculator.CreateCommand(commandType).Calculate(firstValue, secondValue);
+            double output = calculateCommandFactory.CreateCommand(commandType).Calculate(firstValue, secondValue);
             return output;
         }
     }
