@@ -17,8 +17,6 @@ namespace SimpleCalculator.Controllers
 
     public class MathCalculatorController : ICalculator
     {
-       
-
         /// <summary>
         /// API Request Recieving Method.
         /// </summary>
