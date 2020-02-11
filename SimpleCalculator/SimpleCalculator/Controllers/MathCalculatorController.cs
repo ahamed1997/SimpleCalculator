@@ -17,8 +17,6 @@ namespace SimpleCalculator.Controllers
 
     public class MathCalculatorController : ICalculator
     {
-       
-
         /// <summary>
         /// API Request Recieving Method.
         /// </summary>
@@ -30,9 +28,9 @@ namespace SimpleCalculator.Controllers
         public double ArithmeticCalculator(double firstValue = 0, double secondValue = 0, int operationType = 1)
         {
             ICalculateCommandFactory calculateCommandFactory;
-            Calculator calculator = new Calculator();
+            
             var commandType = (CommandType)operationType;
-            double output = calculator.CreateCommand(commandType).Calculate(firstValue, secondValue);
+            double output = calculateCommandFactory.CreateCommand(commandType).Calculate(firstValue, secondValue);
             return output;
         }
     }

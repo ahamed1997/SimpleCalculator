@@ -1,4 +1,4 @@
-﻿// <copyright file="ICalculatorCreate.cs" company="PlaceholderCompany">
+﻿// <copyright file="ICalculatorCommandFactory.cs" company="PlaceholderCompany">
 // Copyright (c) PlaceholderCompany. All rights reserved.
 // </copyright>
 
