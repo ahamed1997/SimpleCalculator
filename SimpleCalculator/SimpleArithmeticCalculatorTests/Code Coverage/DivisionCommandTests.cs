@@ -1,31 +1,46 @@
-﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
-using Moq;
-using SimpleArithmeticCalculator.Interfaces;
-using System;
+﻿// <copyright file="DivisionCommandTests.cs" company="PlaceholderCompany">
+// Copyright (c) PlaceholderCompany. All rights reserved.
+// </copyright>
 
 namespace SimpleArithmeticCalculatorTests
 {
+    using System;
+    using Microsoft.VisualStudio.TestTools.UnitTesting;
+    using Moq;
+    using SimpleArithmeticCalculator.Interfaces;
+
+    /// <summary>
+    /// Test Class for Division.
+    /// </summary>
     [TestClass]
     public class DivisionCommandTests
     {
         private Mock<ICalculatorCommand> calculatorMock;
         private ICalculatorCommand calculator;
+
+        /// <summary>
+        /// Test Initializing.
+        /// </summary>
         [TestInitialize]
         public void TestInitialize()
         {
-            calculatorMock = new Mock<ICalculatorCommand>();
-            calculator = calculatorMock.Object;
+            this.calculatorMock = new Mock<ICalculatorCommand>();
+            this.calculator = this.calculatorMock.Object;
         }
+
+        /// <summary>
+        /// Division Test Method.
+        /// </summary>
         [TestMethod]
         public void DivisionCommandTest()
         {
-            //Arrange
+            // Arrange
             double expectedValue = 41;
             try
             {
-                //Act
+                // Act
                 this.calculatorMock.Setup(x => x.Calculate(82, 2)).Returns(41);
-                double actualValue = calculator.Calculate(82, 2);
+                double actualValue = this.calculator.Calculate(82, 2);
                 Assert.AreEqual(expectedValue, actualValue);
             }
             catch
@@ -33,94 +48,114 @@ namespace SimpleArithmeticCalculatorTests
                 throw;
             }
         }
-        //[ExpectedException(typeof(AssertFailedException))]
+
+        /// <summary>
+        ///  Exception Test Cases One.
+        /// </summary>
         [TestMethod]
         public void DivisionCommandTest_withTwoPositiveIntegerwithDecimal()
         {
-            //Arrange
+            // Arrange
             double expectedValue = 0.6073;
-            //Act
+
+            // Act
             try
             {
-                this.calculatorMock.Setup(x => x.Calculate(0.75,1.235)).Returns(0.6073);
-                double actualValue = calculator.Calculate(0.75, 1.235);
+                this.calculatorMock.Setup(x => x.Calculate(0.75, 1.235)).Returns(0.6073);
+                double actualValue = this.calculator.Calculate(0.75, 1.235);
                 Assert.AreEqual(expectedValue, actualValue);
             }
             catch (Exception ex)
             {
-                throw;
+                throw ex;
             }
         }
-        //[ExpectedException(typeof(AssertFailedException))]
+
+        /// <summary>
+        ///  Exception Test Cases Two.
+        /// </summary>
         [TestMethod]
         public void DivisionCommandTest_withOnenegativeandOnepositiveInteger()
         {
-            //Arrange
+            // Arrange
             double expectedValue = -4;
-            //Act
+
+            // Act
             try
             {
-                this.calculatorMock.Setup(x => x.Calculate(80,-20)).Returns(-4);
-                double actualValue = calculator.Calculate(80, -20);
+                this.calculatorMock.Setup(x => x.Calculate(80, -20)).Returns(-4);
+                double actualValue = this.calculator.Calculate(80, -20);
                 Assert.AreEqual(expectedValue, actualValue);
             }
             catch (Exception ex)
             {
-                throw;
+                throw ex;
             }
         }
-        // [ExpectedException(typeof(AssertFailedException))]
+
+        /// <summary>
+        ///  Exception Test Cases Three.
+        /// </summary>
         [TestMethod]
         public void DivisionCommandTest_withTwoNegativeIntegers()
         {
-            //Arrange
+            // Arrange
             double expectedValue = 0.5;
-            //Act
+
+            // Act
             try
             {
-                this.calculatorMock.Setup(x => x.Calculate(-1,-2)).Returns(0.5);
-                double actualValue = calculator.Calculate(-1,-2);
+                this.calculatorMock.Setup(x => x.Calculate(-1, -2)).Returns(0.5);
+                double actualValue = this.calculator.Calculate(-1, -2);
                 Assert.AreEqual(expectedValue, actualValue);
             }
             catch (Exception ex)
             {
-                throw;
+                throw ex;
             }
         }
-        // [ExpectedException(typeof(AssertFailedException))]
+
+        /// <summary>
+        ///  Exception Test Cases Four.
+        /// </summary>
         [TestMethod]
         public void DivisionCommandTest_DivideByZero()
         {
-            //Arrange
+            // Arrange
             double expectedValue = 0;
-            //Act
+
+            // Act
             try
             {
-                this.calculatorMock.Setup(x => x.Calculate(8,0)).Returns(0);
-                double actualValue = calculator.Calculate(8,0);
+                this.calculatorMock.Setup(x => x.Calculate(8, 0)).Returns(0);
+                double actualValue = this.calculator.Calculate(8, 0);
                 Assert.AreEqual(expectedValue, actualValue);
             }
             catch (Exception ex)
             {
-                throw;
+                throw ex;
             }
         }
-        // [ExpectedException(typeof(AssertFailedException))]
+
+        /// <summary>
+        ///  Exception Test Cases Five.
+        /// </summary>
         [TestMethod]
         public void DivisionCommandTest_DivideZeroByAnyNumber()
         {
-            //Arrange
+            // Arrange
             double expectedValue = 0;
-            //Act
+
+            // Act
             try
             {
-                this.calculatorMock.Setup(x => x.Calculate(0,30)).Returns(0);
-                double actualValue = calculator.Calculate(0, 30);
+                this.calculatorMock.Setup(x => x.Calculate(0, 30)).Returns(0);
+                double actualValue = this.calculator.Calculate(0, 30);
                 Assert.AreEqual(expectedValue, actualValue);
             }
             catch (Exception ex)
             {
-                throw;
+                throw ex;
             }
         }
     }

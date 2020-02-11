@@ -29,8 +29,6 @@ namespace SimpleCalculator.Controllers
        [HttpGet]
        public double ArithmeticCalculator(double firstValue = 0, double secondValue = 0, int operationType = 1)
         {
-
-
             Calculator calculator = new Calculator();
             var commandType = (CommandType)operationType;
             var command = calculator.CreateCommand(commandType);
