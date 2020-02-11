@@ -1,6 +1,7 @@
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using Moq;
 using SimpleArithmeticCalculator.Interfaces;
+using System;
 
 namespace SimpleArithmeticCalculatorTests
 {
@@ -28,7 +29,28 @@ namespace SimpleArithmeticCalculatorTests
             //Assert
             Assert.AreEqual(expectedValue, actualValue);
             this.calculatorMock.Verify(x => x.Calculate(It.IsAny<double>(), It.IsAny<double>()), Times.Once());
+        }
 
+        [ExpectedException(typeof(AssertFailedException))]
+        [TestMethod]
+        public void AddCommand_Tests_negative()
+        {
+            //Arrange
+            double expectedValue = 45;
+           
+
+            //Act
+            try
+            {
+                this.calculatorMock.Setup(x => x.Calculate(-30, -15)).Returns(-45);
+                double actualValue = calculator.Calculate(-30,-15);
+                Assert.AreEqual(expectedValue, actualValue);
+            }
+            catch (Exception ex)
+            {
+                throw;
+            }
+           
         }
     }
 }
