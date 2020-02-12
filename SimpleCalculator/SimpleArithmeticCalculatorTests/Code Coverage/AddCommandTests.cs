@@ -10,7 +10,6 @@ namespace SimpleArithmeticCalculatorTests
     using Moq;
     using SimpleArithmeticCalculator.Interfaces;
 
-
     /// <summary>
     /// Test Class for Addition Operaion.
     /// </summary>
@@ -19,7 +18,6 @@ namespace SimpleArithmeticCalculatorTests
     {
         private Mock<ICalculatorCommand> calculatorMock;
         private ICalculatorCommand calculator;
-
 
         /// <summary>
         /// Addition Test Initializing.
@@ -67,7 +65,7 @@ namespace SimpleArithmeticCalculatorTests
             }
             catch (Exception)
             {
-                throw ex;
+                throw;
             }
         }
     }
