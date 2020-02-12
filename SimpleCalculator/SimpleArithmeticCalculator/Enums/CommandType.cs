@@ -3,9 +3,10 @@
 // </copyright>
 
 namespace SimpleArithmeticCalculator.Enums
-{/// <summary>
-/// Enum is created to choose the command type.
-/// </summary>
+{
+    /// <summary>
+    /// Enum is created to choose the command type.
+    /// </summary>
     public enum CommandType
     {/// <summary>
     /// Add Command.

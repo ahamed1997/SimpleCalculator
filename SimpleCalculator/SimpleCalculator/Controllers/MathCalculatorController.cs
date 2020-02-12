@@ -4,10 +4,10 @@
 
 namespace SimpleCalculator.Controllers
 {
+    using System.Web.Http.Cors;
     using Microsoft.AspNetCore.Mvc;
     using SimpleArithmeticCalculator;
     using SimpleArithmeticCalculator.Enums;
-    using System.Web.Http.Cors;
 
     /// <summary>
     /// Controller MathCalculatorController is created.
