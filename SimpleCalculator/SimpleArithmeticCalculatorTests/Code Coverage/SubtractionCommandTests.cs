@@ -9,7 +9,6 @@ namespace SimpleArithmeticCalculatorTests
     using Moq;
     using SimpleArithmeticCalculator.Interfaces;
 
-
     /// <summary>
     /// Test Class for Subtraction.
     /// </summary>
@@ -18,7 +17,6 @@ namespace SimpleArithmeticCalculatorTests
     {
         private Mock<ICalculatorCommand> calculatorMock;
         private ICalculatorCommand calculator;
-
 
         /// <summary>
         /// Test Initialize.
@@ -69,7 +67,7 @@ namespace SimpleArithmeticCalculatorTests
             }
             catch (Exception)
             {
-                throw ex;
+                throw;
             }
         }
 
@@ -91,10 +89,9 @@ namespace SimpleArithmeticCalculatorTests
             }
             catch (Exception)
             {
-                throw ex;
+                throw;
             }
         }
-
 
         /// <summary>
         /// Exception Test Case three.
@@ -114,7 +111,7 @@ namespace SimpleArithmeticCalculatorTests
             }
             catch (Exception)
             {
-                throw ex;
+                throw;
             }
         }
     }

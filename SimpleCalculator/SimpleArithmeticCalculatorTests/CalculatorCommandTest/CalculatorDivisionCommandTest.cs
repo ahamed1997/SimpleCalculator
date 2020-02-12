@@ -9,6 +9,9 @@ namespace SimpleArithmeticCalculatorTests
     using SimpleArithmeticCalculator.Enums;
     using SimpleArithmeticCalculator.Interfaces;
 
+    /// <summary>
+    /// Division Command Test class.
+    /// </summary>
     [TestClass]
     public class CalculatorDivisionCommandTest
     {
@@ -18,6 +21,9 @@ namespace SimpleArithmeticCalculatorTests
         private Mock<ICalculatorCommand> calculatorCommandMock;
         private ICalculatorCommand calculatorCommand;
 
+        /// <summary>
+        /// Test Initialization.
+        /// </summary>
         [TestInitialize]
         public void TestInitialize()
         {
@@ -28,6 +34,9 @@ namespace SimpleArithmeticCalculatorTests
             this.calculatorCommand = this.calculatorCommandMock.Object;
         }
 
+        /// <summary>
+        /// Division Test.
+        /// </summary>
         [TestMethod]
         public void DivideTest()
         {
@@ -43,21 +52,6 @@ namespace SimpleArithmeticCalculatorTests
 
             // Assert
             Assert.AreEqual(expectedValue, actualValue);
-        }
-
-        public void TestMethod()
-        {
-            var factory = new MockFactory(MockBehavior.Strict);
-
-            var calculatorCommand = factory.Create<ICalculatorCommand>();
-
-            // no need to call Verifiable() on the setup 
-            // as we'll be validating all of them anyway.
-            calculatorCommand.Setup(x => x.Calculate(2, 2));
-
-            // exercise the mocks here
-
-            calculatorCommand.VerifyAll();
         }
     }
 }
