@@ -29,8 +29,11 @@ namespace SimpleCalculator.Controllers
        [HttpGet]
        public double ArithmeticCalculator(double firstValue = 0, double secondValue = 0, int operationType = 1)
         {
+
+
+            Calculator calculator = new Calculator();
             var commandType = (CommandType)operationType;
-            double output = this.calculateCommandFactory.CreateCommand(commandType).Calculate(firstValue, secondValue);
+            double output = calculator.CreateCommand(commandType).Calculate(firstValue, secondValue);
             return output;
         }
     }
