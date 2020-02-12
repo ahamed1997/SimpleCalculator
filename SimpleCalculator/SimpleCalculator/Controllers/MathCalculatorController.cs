@@ -4,21 +4,18 @@
 
 namespace SimpleCalculator.Controllers
 {
-    using System.Web.Http.Cors;
     using Microsoft.AspNetCore.Mvc;
     using SimpleArithmeticCalculator;
     using SimpleArithmeticCalculator.Enums;
-    using SimpleArithmeticCalculator.Interfaces;
+    using System.Web.Http.Cors;
 
     /// <summary>
     /// Controller MathCalculatorController is created.
     /// </summary>
     [EnableCors("http://localhost:4200", "*", "GET,PUT,POST")]
 
-    public class MathCalculatorController : IMathController
+    public class MathCalculatorController
     {
-       private ICalculateCommandFactory calculateCommandFactory;
-
         /// <summary>
         /// API Request Recieving Method.
         /// </summary>
