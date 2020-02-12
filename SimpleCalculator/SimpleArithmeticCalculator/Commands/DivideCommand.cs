@@ -17,7 +17,7 @@ namespace SimpleArithmeticCalculator.Commands
         /// <param name="firstValue">Inputs first value.</param>
         /// <param name="secondValue">Inputs second value.</param>
         /// <returns>Return Division result.</returns>
-        public double Calculate(double firstValue,double secondValue)
+        public double Calculate(double firstValue, double secondValue)
         {
             return firstValue / secondValue;
         }
