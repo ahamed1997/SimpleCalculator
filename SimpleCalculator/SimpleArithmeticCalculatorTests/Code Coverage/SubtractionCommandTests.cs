@@ -9,6 +9,7 @@ namespace SimpleArithmeticCalculatorTests
     using Moq;
     using SimpleArithmeticCalculator.Interfaces;
 
+
     /// <summary>
     /// Test Class for Subtraction.
     /// </summary>
@@ -17,6 +18,7 @@ namespace SimpleArithmeticCalculatorTests
     {
         private Mock<ICalculatorCommand> calculatorMock;
         private ICalculatorCommand calculator;
+
 
         /// <summary>
         /// Test Initialize.
@@ -32,7 +34,7 @@ namespace SimpleArithmeticCalculatorTests
         /// Subtraction Test Method.
         /// </summary>
         [TestMethod]
-        public void SubtractionCommand_Test()
+        public void SubtractionCommandTestwithTwoPositiveNumbers()
         {
             // Arrange
             double expectedValue = 16;
@@ -53,7 +55,7 @@ namespace SimpleArithmeticCalculatorTests
         /// Exception Test Case One.
         /// </summary>
         [TestMethod]
-        public void SubtractionCommandTest_withPositiveResult()
+        public void SubtractionCommandTestwithOnePositiveANdOneNegativeNumber()
         {
             // Arrange
             double expectedValue = 59.7;
@@ -65,7 +67,7 @@ namespace SimpleArithmeticCalculatorTests
                 double actualValue = this.calculator.Calculate(80, -20.3);
                 Assert.AreEqual(expectedValue, actualValue);
             }
-            catch (Exception ex)
+            catch (Exception)
             {
                 throw ex;
             }
@@ -75,7 +77,7 @@ namespace SimpleArithmeticCalculatorTests
         /// Exception Test Case two.
         /// </summary>
         [TestMethod]
-        public void SubtractionCommandTest_withNegativeResult()
+        public void SubtractionCommandTestwithOneNegativeAndOnePositiveNumber()
         {
             // Arrange
             double expectedValue = -40.19;
@@ -87,17 +89,18 @@ namespace SimpleArithmeticCalculatorTests
                 double actualValue = this.calculator.Calculate(-52.31, 12.12);
                 Assert.AreEqual(expectedValue, actualValue);
             }
-            catch (Exception ex)
+            catch (Exception)
             {
                 throw ex;
             }
         }
 
+
         /// <summary>
         /// Exception Test Case three.
         /// </summary>
         [TestMethod]
-        public void SubtractionCommandTest_withDecimalNegativeResult()
+        public void SubtractionCommandTestwithDecimalNegativeResult()
         {
             // Arrange
             double expectedValue = -0.44;
@@ -109,7 +112,7 @@ namespace SimpleArithmeticCalculatorTests
                 double actualValue = this.calculator.Calculate(-0.75, 0.31);
                 Assert.AreEqual(expectedValue, actualValue);
             }
-            catch (Exception ex)
+            catch (Exception)
             {
                 throw ex;
             }

@@ -9,6 +9,7 @@ namespace SimpleArithmeticCalculatorTests
     using Moq;
     using SimpleArithmeticCalculator.Interfaces;
 
+
     /// <summary>
     /// Test Class for Division.
     /// </summary>
@@ -65,11 +66,12 @@ namespace SimpleArithmeticCalculatorTests
                 double actualValue = this.calculator.Calculate(0.75, 1.235);
                 Assert.AreEqual(expectedValue, actualValue);
             }
-            catch (Exception ex)
+            catch (Exception)
             {
                 throw ex;
             }
         }
+
 
         /// <summary>
         ///  Exception Test Cases Two.
@@ -87,11 +89,12 @@ namespace SimpleArithmeticCalculatorTests
                 double actualValue = this.calculator.Calculate(80, -20);
                 Assert.AreEqual(expectedValue, actualValue);
             }
-            catch (Exception ex)
+            catch (Exception)
             {
                 throw ex;
             }
         }
+
 
         /// <summary>
         ///  Exception Test Cases Three.
@@ -109,7 +112,7 @@ namespace SimpleArithmeticCalculatorTests
                 double actualValue = this.calculator.Calculate(-1, -2);
                 Assert.AreEqual(expectedValue, actualValue);
             }
-            catch (Exception ex)
+            catch (Exception)
             {
                 throw ex;
             }
@@ -131,7 +134,7 @@ namespace SimpleArithmeticCalculatorTests
                 double actualValue = this.calculator.Calculate(8, 0);
                 Assert.AreEqual(expectedValue, actualValue);
             }
-            catch (Exception ex)
+            catch (Exception)
             {
                 throw ex;
             }
@@ -153,7 +156,7 @@ namespace SimpleArithmeticCalculatorTests
                 double actualValue = this.calculator.Calculate(0, 30);
                 Assert.AreEqual(expectedValue, actualValue);
             }
-            catch (Exception ex)
+            catch (Exception)
             {
                 throw ex;
             }

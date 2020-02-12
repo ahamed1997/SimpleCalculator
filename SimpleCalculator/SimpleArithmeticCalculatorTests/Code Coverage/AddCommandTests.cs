@@ -3,11 +3,13 @@
 // </copyright>
 
 namespace SimpleArithmeticCalculatorTests
+#pragma warning restore SA1652 // Enable XML documentation output
 {
     using System;
     using Microsoft.VisualStudio.TestTools.UnitTesting;
     using Moq;
     using SimpleArithmeticCalculator.Interfaces;
+
 
     /// <summary>
     /// Test Class for Addition Operaion.
@@ -17,6 +19,7 @@ namespace SimpleArithmeticCalculatorTests
     {
         private Mock<ICalculatorCommand> calculatorMock;
         private ICalculatorCommand calculator;
+
 
         /// <summary>
         /// Addition Test Initializing.
@@ -62,7 +65,7 @@ namespace SimpleArithmeticCalculatorTests
                 double actualValue = this.calculator.Calculate(-80, -20);
                 Assert.AreEqual(expectedValue, actualValue);
             }
-            catch (Exception ex)
+            catch (Exception)
             {
                 throw ex;
             }

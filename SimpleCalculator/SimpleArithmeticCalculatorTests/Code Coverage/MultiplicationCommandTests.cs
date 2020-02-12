@@ -28,6 +28,7 @@ namespace SimpleArithmeticCalculatorTests
             this.calculator = this.calculatorMock.Object;
         }
 
+
         /// <summary>
         /// Test Method for Multiplication Operation.
         /// </summary>
@@ -43,11 +44,13 @@ namespace SimpleArithmeticCalculatorTests
                 double actualValue = this.calculator.Calculate(20, 20);
                 Assert.AreEqual(expectedValue, actualValue);
             }
+
             catch (Exception ex)
             {
                 throw ex;
             }
         }
+
 
         /// <summary>
         /// Exception Test Case One.
@@ -65,7 +68,7 @@ namespace SimpleArithmeticCalculatorTests
                 double actualValue = this.calculator.Calculate(40, 40);
                 Assert.AreEqual(expectedValue, actualValue);
             }
-            catch (Exception ex)
+            catch (Exception)
             {
                 throw ex;
             }
@@ -87,11 +90,12 @@ namespace SimpleArithmeticCalculatorTests
                 double actualValue = this.calculator.Calculate(16.57, 81.06);
                 Assert.AreEqual(expectedValue, actualValue);
             }
-            catch (Exception ex)
+            catch (Exception)
             {
                 throw ex;
             }
         }
+
 
         /// <summary>
         /// Exception test case three.
@@ -109,7 +113,7 @@ namespace SimpleArithmeticCalculatorTests
                 double actualValue = this.calculator.Calculate(0.132, 1.53);
                 Assert.AreEqual(expectedValue, actualValue);
             }
-            catch (Exception ex)
+            catch (Exception)
             {
                 throw ex;
             }
