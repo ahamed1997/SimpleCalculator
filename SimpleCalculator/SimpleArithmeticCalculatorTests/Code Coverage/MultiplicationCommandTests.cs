@@ -9,12 +9,18 @@ namespace SimpleArithmeticCalculatorTests
     using Moq;
     using SimpleArithmeticCalculator.Interfaces;
 
+    /// <summary>
+    /// Multiplication Test Class.
+    /// </summary>
     [TestClass]
     public class MultiplicationCommandTests
     {
         private Mock<ICalculatorCommand> calculatorMock;
         private ICalculatorCommand calculator;
 
+        /// <summary>
+        /// Test Initialization.
+        /// </summary>
         [TestInitialize]
         public void TestInitialize()
         {
@@ -22,6 +28,10 @@ namespace SimpleArithmeticCalculatorTests
             this.calculator = this.calculatorMock.Object;
         }
 
+
+        /// <summary>
+        /// Test Method for Multiplication Operation.
+        /// </summary>
         [TestMethod]
         public void MultiplicationCommand_Tests()
         {
@@ -34,13 +44,17 @@ namespace SimpleArithmeticCalculatorTests
                 double actualValue = this.calculator.Calculate(20, 20);
                 Assert.AreEqual(expectedValue, actualValue);
             }
-            catch (Exception)
+
+            catch (Exception ex)
             {
-                throw;
+                throw ex;
             }
         }
 
-        // [ExpectedException(typeof(AssertFailedException))]
+
+        /// <summary>
+        /// Exception Test Case One.
+        /// </summary>
         [TestMethod]
         public void MultiplicationCommandTest_withTwoNegativeInteger()
         {
@@ -56,11 +70,13 @@ namespace SimpleArithmeticCalculatorTests
             }
             catch (Exception)
             {
-                throw;
+                throw ex;
             }
         }
 
-        // [ExpectedException(typeof(AssertFailedException))]
+        /// <summary>
+        /// Exception Test Case two.
+        /// </summary>
         [TestMethod]
         public void MultiplicationCommandTest_withOnenegativeandOnepositiveInteger()
         {
@@ -76,11 +92,14 @@ namespace SimpleArithmeticCalculatorTests
             }
             catch (Exception)
             {
-                throw;
+                throw ex;
             }
         }
 
-        // [ExpectedException(typeof(AssertFailedException))]
+
+        /// <summary>
+        /// Exception test case three.
+        /// </summary>
         [TestMethod]
         public void MultiplicationCommandTest_withDecimalPositiveInteger()
         {
@@ -96,7 +115,7 @@ namespace SimpleArithmeticCalculatorTests
             }
             catch (Exception)
             {
-                throw;
+                throw ex;
             }
         }
     }

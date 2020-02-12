@@ -9,12 +9,19 @@ namespace SimpleArithmeticCalculatorTests
     using Moq;
     using SimpleArithmeticCalculator.Interfaces;
 
+
+    /// <summary>
+    /// Test Class for Division.
+    /// </summary>
     [TestClass]
     public class DivisionCommandTests
     {
         private Mock<ICalculatorCommand> calculatorMock;
         private ICalculatorCommand calculator;
 
+        /// <summary>
+        /// Test Initializing.
+        /// </summary>
         [TestInitialize]
         public void TestInitialize()
         {
@@ -22,6 +29,9 @@ namespace SimpleArithmeticCalculatorTests
             this.calculator = this.calculatorMock.Object;
         }
 
+        /// <summary>
+        /// Division Test Method.
+        /// </summary>
         [TestMethod]
         public void DivisionCommandTest()
         {
@@ -40,7 +50,9 @@ namespace SimpleArithmeticCalculatorTests
             }
         }
 
-        // [ExpectedException(typeof(AssertFailedException))]
+        /// <summary>
+        ///  Exception Test Cases One.
+        /// </summary>
         [TestMethod]
         public void DivisionCommandTest_withTwoPositiveIntegerwithDecimal()
         {
@@ -56,11 +68,14 @@ namespace SimpleArithmeticCalculatorTests
             }
             catch (Exception)
             {
-                throw;
+                throw ex;
             }
         }
 
-        // [ExpectedException(typeof(AssertFailedException))]
+
+        /// <summary>
+        ///  Exception Test Cases Two.
+        /// </summary>
         [TestMethod]
         public void DivisionCommandTest_withOnenegativeandOnepositiveInteger()
         {
@@ -76,11 +91,14 @@ namespace SimpleArithmeticCalculatorTests
             }
             catch (Exception)
             {
-                throw;
+                throw ex;
             }
         }
 
-        // [ExpectedException(typeof(AssertFailedException))]
+
+        /// <summary>
+        ///  Exception Test Cases Three.
+        /// </summary>
         [TestMethod]
         public void DivisionCommandTest_withTwoNegativeIntegers()
         {
@@ -96,11 +114,13 @@ namespace SimpleArithmeticCalculatorTests
             }
             catch (Exception)
             {
-                throw;
+                throw ex;
             }
         }
 
-        // [ExpectedException(typeof(AssertFailedException))]
+        /// <summary>
+        ///  Exception Test Cases Four.
+        /// </summary>
         [TestMethod]
         public void DivisionCommandTest_DivideByZero()
         {
@@ -116,11 +136,13 @@ namespace SimpleArithmeticCalculatorTests
             }
             catch (Exception)
             {
-                throw;
+                throw ex;
             }
         }
 
-        // [ExpectedException(typeof(AssertFailedException))]
+        /// <summary>
+        ///  Exception Test Cases Five.
+        /// </summary>
         [TestMethod]
         public void DivisionCommandTest_DivideZeroByAnyNumber()
         {
@@ -136,7 +158,7 @@ namespace SimpleArithmeticCalculatorTests
             }
             catch (Exception)
             {
-                throw;
+                throw ex;
             }
         }
     }

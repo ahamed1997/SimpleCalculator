@@ -9,12 +9,20 @@ namespace SimpleArithmeticCalculatorTests
     using Moq;
     using SimpleArithmeticCalculator.Interfaces;
 
+
+    /// <summary>
+    /// Test Class for Subtraction.
+    /// </summary>
     [TestClass]
     public class SubtractionCommandTests
     {
         private Mock<ICalculatorCommand> calculatorMock;
         private ICalculatorCommand calculator;
 
+
+        /// <summary>
+        /// Test Initialize.
+        /// </summary>
         [TestInitialize]
         public void TestInitialize()
         {
@@ -22,6 +30,9 @@ namespace SimpleArithmeticCalculatorTests
             this.calculator = this.calculatorMock.Object;
         }
 
+        /// <summary>
+        /// Subtraction Test Method.
+        /// </summary>
         [TestMethod]
         public void SubtractionCommandTestwithTwoPositiveNumbers()
         {
@@ -40,7 +51,9 @@ namespace SimpleArithmeticCalculatorTests
             }
         }
 
-        // [ExpectedException(typeof(AssertFailedException))]
+        /// <summary>
+        /// Exception Test Case One.
+        /// </summary>
         [TestMethod]
         public void SubtractionCommandTestwithOnePositiveANdOneNegativeNumber()
         {
@@ -56,11 +69,13 @@ namespace SimpleArithmeticCalculatorTests
             }
             catch (Exception)
             {
-                throw;
+                throw ex;
             }
         }
 
-        // [ExpectedException(typeof(AssertFailedException))]
+        /// <summary>
+        /// Exception Test Case two.
+        /// </summary>
         [TestMethod]
         public void SubtractionCommandTestwithOneNegativeAndOnePositiveNumber()
         {
@@ -76,11 +91,14 @@ namespace SimpleArithmeticCalculatorTests
             }
             catch (Exception)
             {
-                throw;
+                throw ex;
             }
         }
 
-        // [ExpectedException(typeof(AssertFailedException))]
+
+        /// <summary>
+        /// Exception Test Case three.
+        /// </summary>
         [TestMethod]
         public void SubtractionCommandTestwithDecimalNegativeResult()
         {
@@ -96,7 +114,7 @@ namespace SimpleArithmeticCalculatorTests
             }
             catch (Exception)
             {
-                throw;
+                throw ex;
             }
         }
     }

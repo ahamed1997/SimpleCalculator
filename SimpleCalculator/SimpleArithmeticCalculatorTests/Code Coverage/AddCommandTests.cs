@@ -1,6 +1,7 @@
 // <copyright file="AddCommandTests.cs" company="PlaceholderCompany">
 // Copyright (c) PlaceholderCompany. All rights reserved.
 // </copyright>
+
 namespace SimpleArithmeticCalculatorTests
 #pragma warning restore SA1652 // Enable XML documentation output
 {
@@ -9,12 +10,20 @@ namespace SimpleArithmeticCalculatorTests
     using Moq;
     using SimpleArithmeticCalculator.Interfaces;
 
+
+    /// <summary>
+    /// Test Class for Addition Operaion.
+    /// </summary>
     [TestClass]
     public class AddCommandTests
     {
         private Mock<ICalculatorCommand> calculatorMock;
         private ICalculatorCommand calculator;
 
+
+        /// <summary>
+        /// Addition Test Initializing.
+        /// </summary>
         [TestInitialize]
         public void TestInitialize()
         {
@@ -22,6 +31,9 @@ namespace SimpleArithmeticCalculatorTests
             this.calculator = this.calculatorMock.Object;
         }
 
+        /// <summary>
+        /// Addition Test Method.
+        /// </summary>
         [TestMethod]
         public void AddCommandTest_withTwoIntegers()
         {
@@ -37,7 +49,9 @@ namespace SimpleArithmeticCalculatorTests
             this.calculatorMock.Verify(x => x.Calculate(It.IsAny<double>(), It.IsAny<double>()), Times.Once());
         }
 
-        // [ExpectedException(typeof(AssertFailedException))]
+        /// <summary>
+        /// ExpectedException Test Cases.
+        /// </summary>
         [TestMethod]
         public void AddCommandTest_withTwoNegativeInteger()
         {
@@ -53,7 +67,7 @@ namespace SimpleArithmeticCalculatorTests
             }
             catch (Exception)
             {
-                throw;
+                throw ex;
             }
         }
     }

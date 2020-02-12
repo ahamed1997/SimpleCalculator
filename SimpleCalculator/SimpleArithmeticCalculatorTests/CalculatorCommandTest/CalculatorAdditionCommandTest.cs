@@ -1,12 +1,13 @@
-﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
-using System;
-using System.Collections.Generic;
-using System.Text;
-using Moq;
-using SimpleArithmeticCalculator.Interfaces;
-using SimpleArithmeticCalculator.Enums;
-namespace SimpleArithmeticCalculatorTests
+﻿namespace SimpleArithmeticCalculatorTests
 {
+    using System;
+    using System.Collections.Generic;
+    using System.Text;
+    using Microsoft.VisualStudio.TestTools.UnitTesting;
+    using Moq;
+    using SimpleArithmeticCalculator.Enums;
+    using SimpleArithmeticCalculator.Interfaces;
+
     [TestClass]
     public class CalculatorAdditionCommandTest
     {
