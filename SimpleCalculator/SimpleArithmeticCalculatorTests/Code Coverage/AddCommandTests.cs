@@ -33,6 +33,7 @@ namespace SimpleArithmeticCalculatorTests
         /// Addition Test Method.
         /// </summary>
         [TestMethod]
+
         public void AddCommandTest_withTwoIntegers()
         {
             // Arrange
