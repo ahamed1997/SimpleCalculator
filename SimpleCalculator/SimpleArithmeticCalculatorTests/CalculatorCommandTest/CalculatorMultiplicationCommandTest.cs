@@ -1,12 +1,14 @@
-﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
-using System;
-using System.Collections.Generic;
-using System.Text;
-using Moq;
-using SimpleArithmeticCalculator.Interfaces;
-using SimpleArithmeticCalculator.Enums;
+﻿// <copyright file="CalculatorMultiplicationCommandTest.cs" company="PlaceholderCompany">
+// Copyright (c) PlaceholderCompany. All rights reserved.
+// </copyright>
+
 namespace SimpleArithmeticCalculatorTests
 {
+    using Microsoft.VisualStudio.TestTools.UnitTesting;
+    using Moq;
+    using SimpleArithmeticCalculator.Enums;
+    using SimpleArithmeticCalculator.Interfaces;
+
     [TestClass]
     public class CalculatorMultiplicationCommandTest
     {
@@ -19,27 +21,28 @@ namespace SimpleArithmeticCalculatorTests
         [TestInitialize]
         public void TestInitialize()
         {
-            calculateCommandFactoryMock = new Mock<ICalculateCommandFactory>();
-            calculatorCommandMock = new Mock<ICalculatorCommand>();
+            this.calculateCommandFactoryMock = new Mock<ICalculateCommandFactory>();
+            this.calculatorCommandMock = new Mock<ICalculatorCommand>();
 
             this.calculateCommandFactory = this.calculateCommandFactoryMock.Object;
-            calculatorCommand = calculatorCommandMock.Object;
+            this.calculatorCommand = this.calculatorCommandMock.Object;
         }
 
         [TestMethod]
         public void MultiplyTests()
         {
-            //Arrange 
+            // Arrange
             double expectedValue = 20;
-            calculatorCommandMock.Setup(x => x.Calculate(10, 2)).Returns(20);
-            calculateCommandFactoryMock.Setup(x => x.CreateCommand(CommandType.Divide)).Returns(calculatorCommandMock.Object);
-            var command = calculateCommandFactory.CreateCommand(CommandType.Divide);
+            this.calculatorCommandMock.Setup(x => x.Calculate(10, 2)).Returns(20);
+            this.calculateCommandFactoryMock.Setup(x => x.CreateCommand(CommandType.Divide)).Returns(this.calculatorCommandMock.Object);
+            var command = this.calculateCommandFactory.CreateCommand(CommandType.Divide);
             var value = command.Calculate(10, 2);
-            //Act
-            double actualValue = command.Calculate(10, 2);
-            //Assert
-            Assert.AreEqual(expectedValue, actualValue);
 
+            // Act
+            double actualValue = command.Calculate(10, 2);
+
+            // Assert
+            Assert.AreEqual(expectedValue, actualValue);
         }
     }
 }

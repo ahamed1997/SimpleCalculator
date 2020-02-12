@@ -39,7 +39,6 @@ namespace SimpleArithmeticCalculatorTests
             double actualValue = command.Calculate(10, 2);
             //Assert
             Assert.AreEqual(expectedValue, actualValue);
-
         }
     }
 }
