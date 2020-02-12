@@ -1,12 +1,17 @@
-﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
-using System;
-using System.Collections.Generic;
-using System.Text;
-using Moq;
-using SimpleArithmeticCalculator.Interfaces;
-using SimpleArithmeticCalculator.Enums;
+﻿// <copyright file="CalculatorSubtractionCommandTest.cs" company="PlaceholderCompany">
+// Copyright (c) PlaceholderCompany. All rights reserved.
+// </copyright>
+
 namespace SimpleArithmeticCalculatorTests
 {
+    using Microsoft.VisualStudio.TestTools.UnitTesting;
+    using Moq;
+    using SimpleArithmeticCalculator.Enums;
+    using SimpleArithmeticCalculator.Interfaces;
+
+    /// <summary>
+    /// Subtraction Command Test Class.
+    /// </summary>
     [TestClass]
     public class CalculatorSubtractionCommandTest
     {
@@ -16,28 +21,36 @@ namespace SimpleArithmeticCalculatorTests
         private Mock<ICalculatorCommand> calculatorCommandMock;
         private ICalculatorCommand calculatorCommand;
 
+        /// <summary>
+        /// Test Initialization.
+        /// </summary>
         [TestInitialize]
         public void TestInitialize()
         {
-            calculateCommandFactoryMock = new Mock<ICalculateCommandFactory>();
-            calculatorCommandMock = new Mock<ICalculatorCommand>();
+            this.calculateCommandFactoryMock = new Mock<ICalculateCommandFactory>();
+            this.calculatorCommandMock = new Mock<ICalculatorCommand>();
 
             this.calculateCommandFactory = this.calculateCommandFactoryMock.Object;
-            calculatorCommand = calculatorCommandMock.Object;
+            this.calculatorCommand = this.calculatorCommandMock.Object;
         }
 
+        /// <summary>
+        /// Subtraction Test Method.
+        /// </summary>
         [TestMethod]
         public void SubtractTests()
         {
-            //Arrange 
+            // Arrange
             double expectedValue = 8;
-            calculatorCommandMock.Setup(x => x.Calculate(10, 2)).Returns(8);
-            calculateCommandFactoryMock.Setup(x => x.CreateCommand(CommandType.Divide)).Returns(calculatorCommandMock.Object);
-            var command = calculateCommandFactory.CreateCommand(CommandType.Divide);
+            this.calculatorCommandMock.Setup(x => x.Calculate(10, 2)).Returns(8);
+            this.calculateCommandFactoryMock.Setup(x => x.CreateCommand(CommandType.Divide)).Returns(this.calculatorCommandMock.Object);
+            var command = this.calculateCommandFactory.CreateCommand(CommandType.Divide);
             var value = command.Calculate(10, 2);
-            //Act
+
+            // Act
             double actualValue = command.Calculate(10, 2);
-            //Assert
+
+            // Assert
             Assert.AreEqual(expectedValue, actualValue);
         }
     }

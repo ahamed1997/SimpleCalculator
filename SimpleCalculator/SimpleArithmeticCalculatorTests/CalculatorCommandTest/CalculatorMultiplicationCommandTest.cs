@@ -9,6 +9,9 @@ namespace SimpleArithmeticCalculatorTests
     using SimpleArithmeticCalculator.Enums;
     using SimpleArithmeticCalculator.Interfaces;
 
+    /// <summary>
+    /// Class Multiplication Command Teste.
+    /// </summary>
     [TestClass]
     public class CalculatorMultiplicationCommandTest
     {
@@ -18,6 +21,9 @@ namespace SimpleArithmeticCalculatorTests
         private Mock<ICalculatorCommand> calculatorCommandMock;
         private ICalculatorCommand calculatorCommand;
 
+        /// <summary>
+        /// Test Initialization.
+        /// </summary>
         [TestInitialize]
         public void TestInitialize()
         {
@@ -28,6 +34,9 @@ namespace SimpleArithmeticCalculatorTests
             this.calculatorCommand = this.calculatorCommandMock.Object;
         }
 
+        /// <summary>
+        /// Multiplication Test.
+        /// </summary>
         [TestMethod]
         public void MultiplyTests()
         {
