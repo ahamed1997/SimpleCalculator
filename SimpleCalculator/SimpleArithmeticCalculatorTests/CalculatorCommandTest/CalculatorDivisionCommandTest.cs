@@ -38,7 +38,7 @@ namespace SimpleArithmeticCalculatorTests
         /// Division Test.
         /// </summary>
         [TestMethod]
-        public void DivideTest()
+        public void DivisionTest()
         {
             // Arrange
             double expectedValue = 5;
