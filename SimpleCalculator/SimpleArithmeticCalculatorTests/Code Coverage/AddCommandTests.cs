@@ -5,9 +5,7 @@
 namespace SimpleArithmeticCalculatorTests
 #pragma warning restore SA1652 // Enable XML documentation output
 {
-    using System;
     using Microsoft.VisualStudio.TestTools.UnitTesting;
-    using Moq;
     using SimpleArithmeticCalculator.Commands;
     using SimpleArithmeticCalculator.Interfaces;
 
