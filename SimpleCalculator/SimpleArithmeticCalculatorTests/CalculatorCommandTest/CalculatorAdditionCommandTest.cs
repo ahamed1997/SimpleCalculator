@@ -38,7 +38,7 @@ namespace SimpleArithmeticCalculatorTests
         /// Addition Test.
         /// </summary>
         [TestMethod]
-        public void SampleTest()
+        public void AdditionTest()
         {
             // Arrange
             double expectedValue = 5;
