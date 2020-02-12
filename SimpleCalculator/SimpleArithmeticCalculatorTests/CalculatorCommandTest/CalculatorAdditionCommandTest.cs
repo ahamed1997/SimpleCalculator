@@ -19,7 +19,6 @@ namespace SimpleArithmeticCalculatorTests
         private ICalculateCommandFactory calculateCommandFactory;
 
         private Mock<ICalculatorCommand> calculatorCommandMock;
-        private ICalculatorCommand calculatorCommand;
 
         /// <summary>
         /// Test Initialization.
@@ -29,9 +28,7 @@ namespace SimpleArithmeticCalculatorTests
         {
             this.calculateCommandFactoryMock = new Mock<ICalculateCommandFactory>();
             this.calculatorCommandMock = new Mock<ICalculatorCommand>();
-
             this.calculateCommandFactory = this.calculateCommandFactoryMock.Object;
-            this.calculatorCommand = this.calculatorCommandMock.Object;
         }
 
         /// <summary>
