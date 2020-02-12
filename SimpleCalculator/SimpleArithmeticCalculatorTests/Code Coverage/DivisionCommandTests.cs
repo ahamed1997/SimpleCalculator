@@ -9,7 +9,6 @@ namespace SimpleArithmeticCalculatorTests
     using Moq;
     using SimpleArithmeticCalculator.Interfaces;
 
-
     /// <summary>
     /// Test Class for Division.
     /// </summary>
@@ -68,10 +67,9 @@ namespace SimpleArithmeticCalculatorTests
             }
             catch (Exception)
             {
-                throw ex;
+                throw;
             }
         }
-
 
         /// <summary>
         ///  Exception Test Cases Two.
@@ -91,10 +89,9 @@ namespace SimpleArithmeticCalculatorTests
             }
             catch (Exception)
             {
-                throw ex;
+                throw;
             }
         }
-
 
         /// <summary>
         ///  Exception Test Cases Three.
@@ -114,7 +111,7 @@ namespace SimpleArithmeticCalculatorTests
             }
             catch (Exception)
             {
-                throw ex;
+                throw;
             }
         }
 
@@ -136,7 +133,7 @@ namespace SimpleArithmeticCalculatorTests
             }
             catch (Exception)
             {
-                throw ex;
+                throw;
             }
         }
 
@@ -158,7 +155,7 @@ namespace SimpleArithmeticCalculatorTests
             }
             catch (Exception)
             {
-                throw ex;
+                throw;
             }
         }
     }
