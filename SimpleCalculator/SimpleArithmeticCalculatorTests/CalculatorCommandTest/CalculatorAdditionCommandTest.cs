@@ -44,7 +44,7 @@ namespace SimpleArithmeticCalculatorTests
             double expectedValue = 5;
             this.calculatorCommandMock.Setup(x => x.Calculate(3, 2)).Returns(5);
             this.calculateCommandFactoryMock.Setup(x => x.CreateCommand(CommandType.Add)).Returns(this.calculatorCommandMock.Object);
-             var command = this.calculateCommandFactory.CreateCommand(CommandType.Add);
+            var command = this.calculateCommandFactory.CreateCommand(CommandType.Add);
             var value = command.Calculate(3, 2);
 
             // Act
