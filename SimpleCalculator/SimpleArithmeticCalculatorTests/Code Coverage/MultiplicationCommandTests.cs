@@ -32,7 +32,7 @@ namespace SimpleArithmeticCalculatorTests
         /// Test Method for Multiplication Operation.
         /// </summary>
         [TestMethod]
-        public void MultiplicationCommand_Tests()
+        public void MultiplicationTest()
         {
             // Arrange
             double expectedValue = 400;
@@ -43,9 +43,9 @@ namespace SimpleArithmeticCalculatorTests
                 double actualValue = this.calculator.Calculate(20, 20);
                 Assert.AreEqual(expectedValue, actualValue);
             }
-            catch (Exception ex)
+            catch (Exception)
             {
-                throw ex;
+                throw;
             }
         }
 
@@ -53,7 +53,7 @@ namespace SimpleArithmeticCalculatorTests
         /// Exception Test Case One.
         /// </summary>
         [TestMethod]
-        public void MultiplicationCommandTest_withTwoNegativeInteger()
+        public void MultiplicationCommandTestwithTwoNegativeInteger()
         {
             // Arrange
             double expectedValue = 160;
@@ -65,9 +65,9 @@ namespace SimpleArithmeticCalculatorTests
                 double actualValue = this.calculator.Calculate(40, 40);
                 Assert.AreEqual(expectedValue, actualValue);
             }
-            catch (Exception ex)
+            catch (Exception)
             {
-                throw ex;
+                throw;
             }
         }
 
@@ -75,7 +75,7 @@ namespace SimpleArithmeticCalculatorTests
         /// Exception Test Case two.
         /// </summary>
         [TestMethod]
-        public void MultiplicationCommandTest_withOnenegativeandOnepositiveInteger()
+        public void MultiplicationCommandTestwithOnenegativeandOnepositiveInteger()
         {
             // Arrange
             double expectedValue = -1343.16;
@@ -87,9 +87,9 @@ namespace SimpleArithmeticCalculatorTests
                 double actualValue = this.calculator.Calculate(16.57, 81.06);
                 Assert.AreEqual(expectedValue, actualValue);
             }
-            catch (Exception ex)
+            catch (Exception)
             {
-                throw ex;
+                throw;
             }
         }
 
@@ -97,7 +97,7 @@ namespace SimpleArithmeticCalculatorTests
         /// Exception test case three.
         /// </summary>
         [TestMethod]
-        public void MultiplicationCommandTest_withDecimalPositiveInteger()
+        public void MultiplicationCommandTestwithDecimalPositiveInteger()
         {
             // Arrange
             double expectedValue = 0.202;
@@ -109,9 +109,9 @@ namespace SimpleArithmeticCalculatorTests
                 double actualValue = this.calculator.Calculate(0.132, 1.53);
                 Assert.AreEqual(expectedValue, actualValue);
             }
-            catch (Exception ex)
+            catch (Exception)
             {
-                throw ex;
+                throw;
             }
         }
     }

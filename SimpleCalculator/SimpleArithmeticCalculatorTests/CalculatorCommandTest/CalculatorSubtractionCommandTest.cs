@@ -38,7 +38,7 @@ namespace SimpleArithmeticCalculatorTests
         /// Subtraction Test Method.
         /// </summary>
         [TestMethod]
-        public void SubtractTests()
+        public void SubtractionTest()
         {
             // Arrange
             double expectedValue = 8;

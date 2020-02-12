@@ -75,7 +75,7 @@ namespace SimpleArithmeticCalculatorTests
         ///  Exception Test Cases Two.
         /// </summary>
         [TestMethod]
-        public void DivisionCommandTest_withOnenegativeandOnepositiveInteger()
+        public void DivisionCommandTestwithOnenegativeandOnepositiveInteger()
         {
             // Arrange
             double expectedValue = -4;
@@ -97,7 +97,7 @@ namespace SimpleArithmeticCalculatorTests
         ///  Exception Test Cases Three.
         /// </summary>
         [TestMethod]
-        public void DivisionCommandTest_withTwoNegativeIntegers()
+        public void DivisionCommandTestwithTwoNegativeIntegers()
         {
             // Arrange
             double expectedValue = 0.5;
@@ -141,7 +141,7 @@ namespace SimpleArithmeticCalculatorTests
         ///  Exception Test Cases Five.
         /// </summary>
         [TestMethod]
-        public void DivisionCommandTest_DivideZeroByAnyNumber()
+        public void DivisionCommandTestDivideZeroByAnyNumber()
         {
             // Arrange
             double expectedValue = 0;

@@ -38,7 +38,7 @@ namespace SimpleArithmeticCalculatorTests
         /// Multiplication Test.
         /// </summary>
         [TestMethod]
-        public void MultiplyTests()
+        public void MultiplicationTests()
         {
             // Arrange
             double expectedValue = 20;
