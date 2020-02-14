@@ -1,0 +1,47 @@
+<html>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    <div id="panel">
+        <h2><b>STANDARD CALCULATOR</b></h2>
+        <table class="table">
+            <div id="inputValue">
+                <p style="float:right; font-size:medium">{{history}}</p>
+                <br>
+                <label id="label">{{inputs}}</label>
+            </div>
+            <tr>
+                
+                <button id="btn" (click)="operator('+')">+</button>                   
+                <button id="btn"  (click)="operator('-')">-</button>
+                <button id="btn"  (click)="operator('*')">x</button>
+                <button  id="btn" (click)="operator('/')">/</button>
+
+            </tr>
+            <tr>
+                <button class="button" (click)="calculation('1')">1</button>
+                <button  class="button"(click)="calculation('2')">2</button>
+                <button  class="button"(click)="calculation('3')">3</button>    
+                <button  class="button" (click)="calculation('4')">4</button>
+            </tr>            
+            <tr>
+               
+                <button class="button"  (click)="calculation('5')">5</button>
+                <button  class="button" (click)="calculation('6')">6</button>
+                <button class="button" (click)="calculation('7')">7</button>
+                <button class="button" (click)="calculation('8')">8</button>
+            </tr>
+            <tr>                
+                <button class="button" (click)="calculation('9')">9</button>
+                <button class="button"  (click)="calculation('0')">0</button>
+                <button class="button"  (click)="calculation('00')">00</button>                        
+                <button class="button" (click)="decimal('.')" >.</button>
+            </tr>            
+            <tr>
+                <button id="btn" (click)="pop()"><<</button>                      
+                <button id="btn" (click)="delete()">C</button>
+                <button id="btns" (click)="operator('=')">=</button>
+            </tr>            
+        </table>
+    </div>
+</html>

@@ -1,11 +1,16 @@
 import { NgModule } from '@angular/core';
-import { Routes, RouterModule } from '@angular/router';
+import { Route, RouterModule,CanActivate } from '@angular/router';
+import { StandardCalculatorComponent } from './components/standard-calculator/standard-calculator.component';
+import { BasicCalculatorComponent } from './components/basic-calculator/basic-calculator.component';
 
 
-const routes: Routes = [];
+const myRoutes:Route[]=[
+  { path: '', redirectTo: 'standardCalculator', pathMatch: 'full' },
+  {path:'basicCalculator',component:BasicCalculatorComponent},
+  {path:'standardCalculator',component:StandardCalculatorComponent}]
 
 @NgModule({
-  imports: [RouterModule.forRoot(routes)],
+  imports: [RouterModule.forRoot(myRoutes)],
   exports: [RouterModule]
 })
 export class AppRoutingModule { }
