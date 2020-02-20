@@ -1,3 +1,6 @@
+/**
+* Imports Reqirements for StandardCalculatorComponent.
+*/
 import { Component, OnInit } from '@angular/core';
 import { CalculatorService } from 'src/app/services/calculator.service';
 
@@ -6,242 +9,273 @@ import { CalculatorService } from 'src/app/services/calculator.service';
   templateUrl: './standard-calculator.component.html',
   styleUrls: ['./standard-calculator.component.css']
 })
-export class StandardCalculatorComponent implements OnInit {
-  
-  inputs:any="";  
-  inputValue:any[];
-  history:any="";
-  value:any;
-  index:any;
-  operation:any;
-  operand1:any;
-  operand2:any;
-  constructor( private  calculatorService:CalculatorService) 
-  {        
-    this.inputValue=[];
-  }
-  calculation(input)
-  { 
-    this.inputs += input;
-    this.history += input;
-    this.inputValue.push(input);
-    
-    // var str = "12345";
-    // var newStr = str.slice(0, -1);
-  }
-  pop()
-  {    
-    var str = this.inputs;
-    var newStr = str.slice(0, -1);
-    this.inputs = newStr;
-    var strhistory = this.history;
-    var newStrHistory = strhistory.slice(0,-1);    
-    this.history = newStrHistory;
-    this.inputValue.pop();
-  }
-  delete()
-  {
-    this.inputs ="";
-    this.inputValue=[];
-    this.history="";
-  }
-  decimal(decimal)
-  {
-    var present;
-    if(this.inputValue.length>=1)
-    {
-      for(var i=0;i<this.inputValue.length;i++)
-      {
-        if(this.inputValue[i] == decimal)
-        {
-          present=true;
-          //Last digit is decimal.
-        }
-      }
-      if(!present)
-      {
-        //If Last digit in the input is not an decimal.        
-        let array = ['+','-','*','/'];
-        var arrayValue =[];
-        var indx;
-        var presentDecimal,notPresent;
-        arrayValue = this.inputs;
-        var len = arrayValue.length;
-        //To Check whether any Operator present
-        for (var i = 0; i < len; i++) 
-        {
-          for(var j=0; j< array.length;j++)
-          {
-            if ( array[j] == this.inputValue[i])
-            {
-              indx = j;
-              notPresent=true;
-            }
-          }            
-        }
-        if(!notPresent) 
-        {
-          //If all the inputs are Numbers.
-          this.inputs+= decimal;
-          this.history += decimal;
-          this.inputValue.push(decimal);
 
-        }
-        else
-        {
-          for(let j = indx+1;j<this.inputValue.length;i++)
-          {
-            if(this.inputValue[j]== decimal)
-            {
-              presentDecimal=true;
-            }            
-          }
-          if(!presentDecimal)
-          {
-            //After the operator there is no decimal.
-            this.inputs+= decimal;
-            this.history += decimal;
-            this.inputValue.push(decimal);
-          }
-        }        
-      }
-    }
-    else
-    {
-      //If the Inputs are empty.
-      this.inputs+= decimal;
-      this.history += decimal;
-      this.inputValue.push(decimal);
-    }
-  }
-  operator(inputOperator)
+export class StandardCalculatorComponent implements OnInit {
+
+displayValue:string="";  
+operation:any;
+operand1:any;
+operand2:any;
+numeric:Boolean;
+plus:Boolean;
+minus:Boolean;
+asteric:Boolean;
+divide:Boolean;
+decimal:Boolean;
+
+/**
+* Creates an instance of StandardCalculatorComponent.
+*/
+constructor( private  calculatorService:CalculatorService) 
+{ 
+  this.plus = true;
+  this.minus = true;
+  this.numeric = true;
+  this.decimal = true;
+}
+
+/**
+* // TODO: Insertion of Operator.
+* Insert (+) Operator.
+* @param (+) 
+*/
+insertPlus(plus)
+{
+  if(this.plus)
   {
-    this.inputs.length
-    let array = ['+','-','*','/','.'];
-    var c=0;
-    var arrayValue =[];
-    arrayValue = this.inputs;
-    var len = arrayValue.length; 
-    if((this.inputs == '') && inputOperator != '=')
-    {
-      this.inputs+= 0;
-      this.inputs += inputOperator;
-      this.history += inputOperator;
-      this.inputValue.push(inputOperator);
-      return;
-    }
-    else if ((this.inputs== '') && inputOperator == '=')       
-    {return;}
-    array.forEach(function (value) {
-      if(value == arrayValue[len-1])
-      {
-        c=1;
-      }
-    });        
-    if((c==1) && inputOperator != '=')
-    {
-      var str = this.inputs;
-      var newStr = str.slice(0, -1);  
-      this.inputs = newStr+inputOperator;
-      var strhistory = this.history;
-      var newStrHistory = strhistory.slice(0,-1);    
-      this.history = newStrHistory+inputOperator;
-      this.inputValue.pop();
-      this.inputValue.push(inputOperator);
-    
-    }
-    else if ((c==1) && inputOperator == '=')
-    {
-      return;
-    }
-    else
-    {
-      //Calculation Part.
-      let arrayn = ['+','-','*','/'];
-      var arrayValue =[];
-      var indx,val;
-      arrayValue = this.inputs;
-      var len = arrayValue.length;      
-      for (var i = 0; i < len; i++) {
-        for(var j=0; j< arrayn.length;j++)
-        {
-          if ( arrayn[j] == arrayValue[i])
-          {
-              indx = i;
-              let optr = arrayn[j];
-              val = optr;
-          }
-        }        
-      }
-      var operand1="",operand2="";
-      for(var j=0; j< indx ; j++)
-      {
-        operand1 += arrayValue[j];  
-      }
-      for( var k=indx+1; k< len;k++)
-      {
-        operand2 += arrayValue[k];
-      }          
-      if( val=="+")
-      {
-        this.operation=1
-      }
-      else if ( val =="-")
-      {
-        this.operation=2
-      }
-      else if (val == "*")
-      {
-        this.operation=3
-      }
-      else if (val == "/")
-      {
-        this.operation=4
-      }
-      this.operand1 = operand1;
-      this.operand2 = operand2;
-      //CHECKING FOR LENGTH.
-      if(val != undefined) 
-      {
-        if(operand1=="")
-        {
-          this.operand1 =0;
-        }
-        if(operand2=="")
-        {
-          this.operand2=0;
-        }
-        this.calculatorService.calculation(this.operand1,this.operand2,this.operation).subscribe((data)=>
-        {
-          console.log('result',data)
-          if(inputOperator == '=')
-          {
-            this.inputs = data;
-            this.history += '=';
-            this.history += data;
-            this.inputValue =[];
-            this.inputValue.push(data);
-          }
-          else
-          {
-          this.inputs = data + inputOperator;
-          this.history += '=';
-          this.history += data + inputOperator;
-          this.inputValue =[];
-          this.inputValue.push(data);
-          this.inputValue.push(inputOperator);
-          }          
-        })
-      } 
-      else if (inputOperator != '=')
-      {        
-        this.inputs += inputOperator;
-        this.history += inputOperator;
-        this.inputValue.push(inputOperator);      
-      } 
-    }
+    this.arithmeticOperation(plus);
+    this.changeCurrentStatus(true,false,false,false,false,true);
   }
-  ngOnInit() {
+  else
+  {
+    this.replacingElements("-",plus);
+    return;
+  }    
+}
+
+/**
+* // TODO: Insertion of Operator.
+* Insert (-) Operator.
+* @param (-) 
+*/
+insertMinus(minus)
+{
+  if(this.minus)
+  {
+    this.arithmeticOperation(minus);
+    this.changeCurrentStatus(true,false,false,false,false,true);
   }
+  else
+  {
+    this.replacingElements("+",minus);
+    return;
+  }    
+}
+
+/**
+* // TODO: Insertion of Operator.
+* Insert (*) Operator.
+* @param (*) 
+*/
+insertAsterick(asterick)
+{
+  if(this.asteric)
+  {
+    this.arithmeticOperation(asterick);
+    this.changeCurrentStatus(true,true,true,false,false,true);
+  }
+  else
+  {
+    this.replacingElements("/",asterick);
+    return;
+  }
+}
+
+/**
+* // TODO: Insertion of Operator.
+* Insert (/) Operator.
+* @param (/) 
+*/
+insertDivide(divide)
+{
+  if(this.divide)
+  {
+    this.arithmeticOperation(divide);
+    this.changeCurrentStatus(true,true,true,false,false,true);
+  }
+  else
+  {
+    this.replacingElements("*",divide);
+    return;
+  }
+}
+
+/**
+* // TODO: Insertion of Numerics.
+* Insert Numerics.
+* @param (0-9) 
+*/
+insertNumerics(numeric)
+{
+  if((this.numeric) &&(this.displayValue.length<11))
+  {
+    this.displayValue += numeric;
+    this.changeCurrentStatus(true,true,true,true,true,this.decimal);
+  }
+  else
+  {
+    return;
+  }
+}
+
+/**
+* // TODO: Insertion of Decimal.
+* Insert (.) Operator.
+* @param (.) 
+*/
+insertDecimal(decimal)
+{
+  if((this.decimal)&&(this.displayValue.length<11))
+  {
+    this.displayValue += decimal;
+    this.changeCurrentStatus(true,false,false,false,false,false);
+  }
+  else
+  {
+    return;
+  }
+}
+
+/**
+* // TODO: Replacement.
+* Replacement from one opertor to another.
+* @param from operator. 
+* @param to operator.
+*/
+replacingElements(from,to)
+{
+  if(this.displayValue.charAt(this.displayValue.length-1) == from)
+  {      
+    this.displayValue=this.displayValue.slice(0,-1);
+    this.displayValue+= to;
+  }
+}
+
+/**
+* // TODO: Arithmetic Operation.
+* Takes type of Operation.
+* @param operator. 
+*/
+arithmeticOperation(operator)
+{
+  this.operand1 = this.displayValue.substring(0, this.getIndex());
+  this.operand2 = this.displayValue.substring(this.getIndex()+1);
+  this.operation = this.displayValue.charAt(this.getIndex());
+  if((this.operand1!="")&&(this.operand2!=""))
+  {      
+    this.calculatorService.calculate(this.operand1,this.operand2,this.operation).subscribe(data=>{
+      this.displayValue = data + operator;
+      return ;
+    })
+  }
+  else if((operator != "=")&&(this.displayValue.length<11))
+  {
+    this.displayValue +=operator;
+    return;
+  }    
+}
+
+/**
+* // TODO: Find Index.
+* Find operator index.
+* @returns index.
+*/
+getIndex():number
+{
+  let array = ['+','-','*','/']
+  for(var i=1;i<this.displayValue.length;i++)
+  {
+    for(var j=0;j<array.length;j++)
+    {
+      if(this.displayValue.charAt(i)==array[j])
+      {
+        return i;
+      } 
+    }        
+  }
+  return -1;
+}
+
+/**
+* // TODO: Operator Status change.
+* Changes operator changes.
+* @param Numeric
+* @param Plus
+* @param Minus
+* @param Asterik
+* @param Divide
+* @param Decimal
+*/
+changeCurrentStatus(Numeric:boolean,Plus:boolean,Minus:boolean,Asterik:boolean,Divide:boolean,Decimal:Boolean)
+{
+  this.numeric = Numeric;
+  this.plus = Plus;
+  this.minus = Minus;
+  this.asteric = Asterik;
+  this.divide = Divide;
+  this.decimal = Decimal;
+}
+
+/**
+* // TODO: Deletes last item.
+* Deletes last element Displayed depending upon last element.
+*/
+deleteLastItem()
+{   
+  this.displayValue = this.displayValue.slice(0,-1);
+  let lastElement = this.displayValue.charAt(this.displayValue.length-1);
+  switch(lastElement)
+  {
+    case "+":
+      this.changeCurrentStatus(true,false,false,false,false,true);
+      return;
+    case "-":
+      this.changeCurrentStatus(true,false,false,false,false,true);
+      return;
+    case "*":
+      this.changeCurrentStatus(true,true,true,false,false,true);
+      return;
+    case "/":
+      this.changeCurrentStatus(true,true,true,false,false,true);
+      return;
+    case ".":
+      this.changeCurrentStatus(true,false,false,false,false,false);
+      return;
+    default :
+    this.changeCurrentStatus(true,true,true,true,true,this.decimal);
+    return;
+  }
+}
+
+/**
+* // TODO: Delete all elements in display.
+* Deletes all Elements and change status of operators.
+*/
+deleteAll()
+{
+  this.displayValue ="";
+  this.plus = true;
+  this.minus = true;
+  this.numeric = true;
+  this.decimal = true;
+  this.asteric = false;
+  this.divide = false;
+}
+
+/**
+* Initializing the component.
+*/
+ngOnInit() {
+}
 }
 

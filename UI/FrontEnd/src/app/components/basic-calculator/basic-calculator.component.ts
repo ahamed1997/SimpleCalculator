@@ -1,3 +1,6 @@
+/**
+* Imports Reqirements for BasicCalculatorComponent.
+*/
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormBuilder, FormControl, Validators } from '@angular/forms';
 import { CalculatorService } from 'src/app/services/calculator.service';
@@ -7,69 +10,90 @@ import { CalculatorService } from 'src/app/services/calculator.service';
   templateUrl: './basic-calculator.component.html',
   styleUrls: ['./basic-calculator.component.css']
 })
-  export class BasicCalculatorComponent implements OnInit {
-    inputvalue_1:any=null;
-    inputvalue_2:any=null;
-    opration:any=null;
-    output:any=0;
-    operator:any;
-    myForm: FormGroup;
-    submitted=false;
-      constructor(private formBuilder:FormBuilder,private calculatorService:CalculatorService) 
-      {
-        this.myForm = new FormGroup
-        ({
-          inputvalue_1: new FormControl(),
-          inputvalue_2:new FormControl()
-        });
-      }
-      get f() {return this.myForm.controls}
-      calculate()
-      {
-        this.submitted=true;
-        if(this.myForm.invalid){
-          return
-        }
-        if(this.myForm.valid)
-        {
-          this.inputvalue_1 = this.myForm.value.inputvalue_1;
-          this.inputvalue_2 = this.myForm.value.inputvalue_2;
-          this.calculatorService.calculation(this.inputvalue_1,this.inputvalue_2,this.opration).subscribe((data)=>
-          {
-            this.output = data;
-            console.log(data)
-          })
-        }
-      }
-    
-      ngOnInit() {
-        this.myForm = this.formBuilder.group(
-          {
-            inputvalue_1: ['', [Validators.required,Validators.pattern('[-0-9][-0-9.]*$')]],
-            inputvalue_2: ['',[Validators.required,Validators.pattern('[-0-9][-0-9.]*$')]]
-          }
-        )
-      }
-      click(operator)
-      {
-        this.operator = operator;
-        if( operator=="+")
-        {this.opration=1}
-        else if (operator=="-")
-        {this.opration=2}
-        else if (operator == "*")
-        {this.opration=3}
-        else if (operator == "/")
-        {this.opration=4}
-        console.log(this.opration)
-      }  
-      clear()
-      {
-        if(this.myForm!=null)
-        {
-          this.myForm.reset();
-          this.output = 0;
-        }
-      }
+
+
+export class BasicCalculatorComponent implements OnInit {
+
+  inputValue1:number=null;
+  inputValue2:number=null;
+  operation:any=null;
+  output:number=0;
+  validationForm: FormGroup;
+  formSubmission=false;
+
+/**
+* Creates an instance of BasicCalculatorComponent.
+*/
+constructor(private formBuilder:FormBuilder,private calculatorService:CalculatorService) 
+{
+  this.validationForm = new FormGroup
+  ({
+    inputValue1: new FormControl(),
+    inputValue2:new FormControl()
+  });
+}
+
+/**
+* Passage of Form Controls.
+*/
+get validationControls() 
+{
+  return this.validationForm.controls
+}
+
+/**
+  * // TODO: Arithmetic Operation.
+  * API call to Backend for Arithmetic operation.
+  */
+basicCalculation()
+{
+  this.formSubmission=true;
+  if(this.validationForm.invalid)
+  {
+    return
+  }
+  else if(this.validationForm.valid)
+  {
+    this.inputValue1 = this.validationForm.value.inputValue1;
+    this.inputValue2 = this.validationForm.value.inputValue2;
+    this.calculatorService.calculate(this.inputValue1,this.inputValue2,this.operation).subscribe((data)=>
+    {
+      this.output = data;
+    })
+  }
+}
+
+/**
+* // TODO: Operator Assignment.
+* Assigns the Operator.
+*/
+assignOperator(operator)
+{
+  this.operation = operator;
+}      
+
+/**
+* // TODO: Delete all elements in display.
+* Deletes all Elements.
+*/
+deleteAll()
+{
+  if(this.validationForm!=null)
+  {
+    this.validationForm.reset();
+    this.output = 0;
+  }
+}
+
+/**
+  * Initializing the component.
+  */
+ngOnInit() {
+  this.validationForm = this.formBuilder.group(
+    {
+      inputValue1: ['', [Validators.required,Validators.pattern('[-0-9][-0-9.]*$')]],
+      inputValue2: ['',[Validators.required,Validators.pattern('[-0-9][-0-9.]*$')]]
     }
-    
+  )
+}
+}
