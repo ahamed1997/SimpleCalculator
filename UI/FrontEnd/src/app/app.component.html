@@ -1,52 +1,13 @@
 <html>
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-<style>
-
-.icon-bar {
-  position: fixed;
-  top: 50%;
-  -webkit-transform: translateY(-50%);
-  -ms-transform: translateY(-50%);
-  transform: translateY(-50%);
-}
-
-.icon-bar a {
-  display: block;
-  text-align: center;
-  padding: 16px;
-  transition: all 0.3s ease;
-  color: white;
-  font-size: 20px;
-}
-
-.icon-bar a:hover {
-  background-color: rgb(32, 194, 18);
-}
-
-.basicCalculator {
-  background: #55ACEE;
-  color: white;
-}
-.standardCalculator {
-  background: #bb0000;
-  color: white;
-}
-
-.content {
-  margin-left: 45px;
-  font-size: 30px;
-}
-</style>
-<body>
-
-<div class="icon-bar">    
-  <a routerLink="basicCalculator" class="basicCalculator"><i class="fa fa-plus-square-o"></i></a> 
-  <a routerLink="standardCalculator" class="standardCalculator"><i class="fa fa-calculator"></i></a> 
-  
-</div>
-<div class="content">
-    <router-outlet></router-outlet>
-</div>
-</body>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <body>
+    <div class="icon-bar">    
+      <a routerLink="basicCalculator" class="basicCalculator"><i class="fa fa-plus-square-o"></i></a> 
+      <a routerLink="standardCalculator" class="standardCalculator"><i class="fa fa-calculator"></i></a>   
+    </div>
+    <div class="content">
+      <router-outlet></router-outlet>
+    </div>
+  </body>
 </html> 

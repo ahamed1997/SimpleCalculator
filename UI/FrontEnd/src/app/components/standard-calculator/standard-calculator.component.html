@@ -5,42 +5,42 @@
     <div id="panel">
         <h2><b>STANDARD CALCULATOR</b></h2>
         <table class="table">
-            <div id="inputValue">
-                <p style="float:right; font-size:medium">{{history}}</p>
-                <br>
-                <label id="label">{{inputs}}</label>
-            </div>
+            <div>
+                <form>                    
+                    <input placeholder="0" type="email" class="form-control" maxlength="10"  id="inputValue" [value]="displayValue">
+                </form>
+            </div>            
             <tr>
                 
-                <button id="btn" (click)="operator('+')">+</button>                   
-                <button id="btn"  (click)="operator('-')">-</button>
-                <button id="btn"  (click)="operator('*')">x</button>
-                <button  id="btn" (click)="operator('/')">/</button>
+                <button id="btn" (click)="insertPlus('+')">+</button>                   
+                <button id="btn"  (click)="insertMinus('-')">-</button>
+                <button id="btn"  (click)="insertAsterick('*')">x</button>
+                <button  id="btn" (click)="insertDivide('/')">/</button>
 
             </tr>
             <tr>
-                <button class="button" (click)="calculation('1')">1</button>
-                <button  class="button"(click)="calculation('2')">2</button>
-                <button  class="button"(click)="calculation('3')">3</button>    
-                <button  class="button" (click)="calculation('4')">4</button>
+                <button class="button" (click)="insertNumerics('1')">1</button>
+                <button  class="button"(click)="insertNumerics('2')">2</button>
+                <button  class="button"(click)="insertNumerics('3')">3</button>    
+                <button  class="button" (click)="insertNumerics('4')">4</button>
             </tr>            
             <tr>
                
-                <button class="button"  (click)="calculation('5')">5</button>
-                <button  class="button" (click)="calculation('6')">6</button>
-                <button class="button" (click)="calculation('7')">7</button>
-                <button class="button" (click)="calculation('8')">8</button>
+                <button class="button"  (click)="insertNumerics('5')">5</button>
+                <button  class="button" (click)="insertNumerics('6')">6</button>
+                <button class="button" (click)="insertNumerics('7')">7</button>
+                <button class="button" (click)="insertNumerics('8')">8</button>
             </tr>
             <tr>                
-                <button class="button" (click)="calculation('9')">9</button>
-                <button class="button"  (click)="calculation('0')">0</button>
-                <button class="button"  (click)="calculation('00')">00</button>                        
-                <button class="button" (click)="decimal('.')" >.</button>
+                <button class="button" (click)="insertNumerics('9')">9</button>
+                <button class="button"  (click)="insertNumerics('0')">0</button>
+                <button class="button"  (click)="insertNumerics('00')">00</button>                        
+                <button class="button" (click)="insertDecimal('.')" >.</button>
             </tr>            
             <tr>
-                <button id="btn" (click)="pop()"><<</button>                      
-                <button id="btn" (click)="delete()">C</button>
-                <button id="btns" (click)="operator('=')">=</button>
+                <button id="btn" (click)="deleteLastItem()"><<</button>                      
+                <button id="btn" (click)="deleteAll()">C</button>
+                <button id="btns" (click)="arithmeticOperation('')">=</button>
             </tr>            
         </table>
     </div>

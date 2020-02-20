@@ -4,37 +4,37 @@
         <div id="panel">
             <div>
                 <h2><b>BASIC CALCULATOR</b></h2>
-                <form  [formGroup]="myForm" (ngSubmit)="calculate()">
+                <form  [formGroup]="validationForm" (ngSubmit)="basicCalculation()">
                     <div>
                         <div class="text-center" style="margin-left: 30px;">
                             <table>
                                 <th id="inputfield">
-                                    <input type="text" style="font-size: larger;" formControlName="inputvalue_1" class="form-control" placeholder="0" [ngClass]="{'is-invalid':submitted && f.inputvalue_1.errors}" >
+                                    <input type="text" style="font-size: larger;" formControlName="inputValue1" class="form-control" placeholder="0" [ngClass]="{'is-invalid':formSubmission && validationControls.inputValue1.errors}" >
                                 </th>
-                                <h3>{{operator}}</h3>                                
+                                <h3>{{operation}}</h3>                                
                                 <th id="inputfield">
-                                    <input type="text" style="font-size: larger;" formControlName="inputvalue_2" class="form-control" placeholder="0" [ngClass]="{'is-invalid':submitted && f.inputvalue_2.errors}" >
+                                    <input type="text" style="font-size: larger;" formControlName="inputValue2" class="form-control" placeholder="0" [ngClass]="{'is-invalid':formSubmission && validationControls.inputValue2.errors}" >
                                 </th>                                                                     
                             </table>                                
                         </div>
                         <div>                   
-                            <span *ngIf="submitted && f.inputvalue_1.errors">
-                                    <span class="validation-error"  style="color: black;" *ngIf="f.inputvalue_1.errors.required">*Please enter the Input 1.</span>
-                                    <span class="validation-error"  *ngIf="f.inputvalue_1.errors.pattern" style="color:black;">*Input 1 is not Valid</span>
-                                    <span class="validation-error"  *ngIf="f.inputvalue_1.errors.min" style="color: black;">Not a Valid Input</span >
+                            <span *ngIf="formSubmission && validationControls.inputValue1.errors">
+                                    <span class="validation-error"  style="color: black;" *ngIf="validationControls.inputValue1.errors.required">*Please enter the Input 1.</span>
+                                    <span class="validation-error"  *ngIf="validationControls.inputValue1.errors.pattern" style="color:black;">*Input 1 is not Valid</span>
+                                    <span class="validation-error"  *ngIf="validationControls.inputValue1.errors.min" style="color: black;">Not a Valid Input</span >
                             </span> 
                             <br>                                      
-                            <span *ngIf="submitted && f.inputvalue_2.errors">
-                                    <span class="validation-error"  style="color: black;" *ngIf="f.inputvalue_2.errors.required">*Please enter the Input 2.</span>
-                                    <span class="validation-error"  *ngIf="f.inputvalue_2.errors.pattern" style="color:black;">*Input 2 is not Valid</span>
-                                    <span class="validation-error"  *ngIf="f.inputvalue_2.errors.min" style="color: black;">Not a Valid Input</span >
+                            <span *ngIf="formSubmission && validationControls.inputValue2.errors">
+                                    <span class="validation-error"  style="color: black;" *ngIf="validationControls.inputValue2.errors.required">*Please enter the Input 2.</span>
+                                    <span class="validation-error"  *ngIf="validationControls.inputValue2.errors.pattern" style="color:black;">*Input 2 is not Valid</span>
+                                    <span class="validation-error"  *ngIf="validationControls.inputValue2.errors.min" style="color: black;">Not a Valid Input</span >
                             </span>                       
                         </div>
                         <div id="numbers">
-                            <button class="button"  (click)="click('+')">+</button>&nbsp;
-                            <button class="button" (click)="click('-')">-</button>&nbsp;
-                            <button class="button" (click)="click('/')">/</button>&nbsp;
-                            <button class="button" (click)="click('*')">x</button><br/>
+                            <button class="button"  (click)="assignOperator('+')">+</button>&nbsp;
+                            <button class="button" (click)="assignOperator('-')">-</button>&nbsp;
+                            <button class="button" (click)="assignOperator('/')">/</button>&nbsp;
+                            <button class="button" (click)="assignOperator('*')">x</button><br/>
                         </div>
                     </div>
                 </form> 
@@ -47,7 +47,7 @@
                     </th>
                 </table>
                 <div id="numbers">
-                    <button class="button" (click)="clear()">CA</button>
+                    <button class="button" (click)="deleteAll()">CA</button>
                 </div>                    
             </div>
         </div>
